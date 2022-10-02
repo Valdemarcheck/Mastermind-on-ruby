@@ -1,0 +1,54 @@
+#1 start the game
+#2 announce rules
+#3 ask if player wants to include duplicate signs
+    # ask for a character
+        # if character is unsupported, ask again
+        # if input is 'y', set allow_duplicate_signs to 'true'
+#4 ask if player wants to include spaces
+    # ask for a character
+        # if character is unsupported, ask again
+        # if input is 'y', set allow_spaces to 'true'
+#5 append ' ' to ALLOWED_SIGNS if allow_spaces == 'true'
+#6 ask if a player wants to play against PC or another player
+    # if against PC, generate a random pattern
+    # else ask another player to input a pattern
+        # if pattern includes unsupported signs, ask again
+        # if pattern is not 4 signs long, ask again
+        # if allow_duplicate_signs == false
+            # if pattern has duplicate signs, ask again
+#6 begin playing (infinite loop)
+    #7 set an attempts variable (10), a row variable (0) and a win variable (false)
+    #8 draw a board (keep it inside a variable)
+    |■|???????|■|
+    |■|-------|■|
+    |■|-------|■|
+    |■|-------|■|
+    |■|-------|■|
+    |■|-------|■|
+    |■|-------|■|
+    |■|-------|■|
+    |■|-------|■|
+    |■|-------|■|
+    |■|-------|■|
+    |■|-------|■|
+    #9 ask a player for a pattern
+        # ask forever until it's valid
+    #10 compare it with PC's
+        # if they are the same, announce a WIN
+            # win = true
+            # break the game session
+        # else compute, how many signs of PC's input are included in player's input
+            # save it in a variable
+            # attempts -= 1
+    #11 if attempts == 0, announce a LOSE
+        # break the game session
+    #12 replace board[row] with |■|#{player input}|■|
+# 13 announce a lose or a win
+    #if win == false
+        # announce lose
+    #else
+        # announce win
+# 14 ask for replay
+    # ask for player input until it is 'y' or 'n'
+    # play all the algorithm again if 'y'
+    # else quit the app altogether
