@@ -16,7 +16,7 @@ class Game
         sleep(1)
         ask_for_rules
         explain_rules if get_one_char('y', 'n') == 'y'
-        sleep(1)
+        sleep(0.5)
         puts "Ok, now we need to adjust some settings"
         ask_for_duplicates
         @duplicates_allowed = duplicates?
@@ -25,7 +25,6 @@ class Game
 
         @player = Player.new
         @enemy = Enemy.new(generate_random_str(@duplicates_allowed))
-        sleep(1)
         announce_start
         begin_game
     end

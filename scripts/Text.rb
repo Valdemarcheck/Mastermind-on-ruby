@@ -23,15 +23,15 @@ module Text
     end
 
     def ask_for_duplicates
-        sleep(1)
+        sleep(0.3)
         puts "Will #{"duplicates".yellow} be allowed in patterns?"
-        sleep(1)
+        sleep(0.3)
     end
 
     def ask_for_spaces
-        sleep(1)
+        sleep(0.3)
         puts "Will #{"spaces".yellow} be allowed in patterns?"
-        sleep(1)
+        sleep(0.3)
     end
 
     def print_divider
@@ -44,9 +44,9 @@ module Text
 
     def announce_matches(matches)
         if !matches.zero?
-            puts "#{"#{matches}".yellow} of your signs matched with enemy's signs!"
+            puts "#{"#{matches}".yellow} of your pegs matched enemy's pegs!"
         else
-            puts "None of your signs matched with enemy's signs..."
+            puts "None of your pegs matched enemy's pegs..."
         end
     end
 

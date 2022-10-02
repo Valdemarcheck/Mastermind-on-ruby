@@ -1,8 +1,8 @@
 require 'colorize'
 module GetString
-    # allowed signs in a pattern
-    @@allowed_signs = ['1', '2', '3', '4', '5', '4']
-    @@this_game_allowed_signs = [].concat(@@allowed_signs)
+    # allowed pegs in a pattern
+    @@allowed_pegs = ['1', '2', '3', '4', '5', '4']
+    @@this_game_allowed_pegs = [].concat(@@allowed_pegs)
 
     # get one character out of 2 allowed ones
     def get_one_char(allowed1, allowed2)
@@ -26,14 +26,14 @@ module GetString
     # ask a player if spaces are allowed
     def spaces?
         if get_one_char('y', 'n') == 'y'
-            @@this_game_allowed_signs.push(' ')
+            @@this_game_allowed_pegs.push(' ')
         end
     end
 
     # get player pattern
     def get_six_char_string(duplicates_allowed)
         pattern = Array.new
-        print "Pattern can include only #{@@this_game_allowed_signs} signs. "
+        print "Pattern can include only #{@@this_game_allowed_pegs} pegs. "
         sleep(0.1)
         print "Duplicates allowed".blue if duplicates_allowed
         print "\n"
@@ -49,13 +49,13 @@ module GetString
         allowed = false
 
         unless pattern.length == 4
-            puts "Your patters's length is invalid, input just 4 signs".red
+            puts "Your patters's length is invalid, input just 4 pegs".red
             return allowed
         end
 
-        pattern.each do |sign|
-            if !pattern.include?(sign)
-                puts "Your pattern has a disallowed sign. Only input #{this_game_allowed_signs} signs".red
+        pattern.each do |peg|
+            if !pattern.include?(peg)
+                puts "Your pattern has a disallowed peg. Only input #{this_game_allowed_pegs} pegs".red
                 return allowed
             end
         end
@@ -72,7 +72,7 @@ module GetString
     def generate_random_str(duplicates_allowed)
         pattern = []
         loop do
-            pattern.push(@@this_game_allowed_signs.sample)
+            pattern.push(@@this_game_allowed_pegs.sample)
             if !duplicates_allowed && pattern.uniq != pattern
                 pattern.pop
             end

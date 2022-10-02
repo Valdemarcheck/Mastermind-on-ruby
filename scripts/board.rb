@@ -76,7 +76,7 @@ class Board
         nil
     end
 
-    # outputs how many signs' positions of player's pattern matched with signs' positions of enemy's pattern
+    # outputs how many pegs' positions of player's pattern matched with pegs' positions of enemy's pattern
     def matches
         matches = 0
         4.times do |i|
