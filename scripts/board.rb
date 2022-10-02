@@ -20,7 +20,6 @@ class Board
         @attempts = 9
         @row = -1
         @board_rows = Array.new(11) { '' }
-        @win = false
         @matches_quantity = 0
         play
     end
@@ -48,8 +47,8 @@ class Board
 
     # fill the board with rows for the first time
     def fill_board_rows
-        @board_rows = @board_rows.map {|row| row = '|■|------|■|'}
-        @board_rows[0] = '|■|??????|■|'
+        @board_rows = @board_rows.map {|row| row = '|■|----|■|'}
+        @board_rows[0] = '|■|????|■|'
     end
 
     # replace a certain row of the board with |+|#{player_pattern}|+|
@@ -80,7 +79,7 @@ class Board
     # outputs how many signs' positions of player's pattern matched with signs' positions of enemy's pattern
     def matches
         matches = 0
-        6.times do |i|
+        4.times do |i|
             matches += 1 if @player.pattern[i] == @enemy.pattern[i]
         end
         matches

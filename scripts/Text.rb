@@ -12,15 +12,26 @@ module Text
     end
 
     def explain_rules
-        # finish it later
+        puts "The object of Mastermind is to guess a secret code consisting of a series of 4".yellow
+        sleep(2)
+        puts "colored pegs. Each guest results in feedback narrowing down the possibilities of the".yellow
+        sleep(2)
+        puts "code. The winner is the player who solves his opponent's secret code with fewer".yellow
+        sleep(2)
+        puts "guesses".yellow
+        sleep(1)
     end
 
     def ask_for_duplicates
+        sleep(1)
         puts "Will #{"duplicates".yellow} be allowed in patterns?"
+        sleep(1)
     end
 
     def ask_for_spaces
+        sleep(1)
         puts "Will #{"spaces".yellow} be allowed in patterns?"
+        sleep(1)
     end
 
     def print_divider
@@ -28,7 +39,7 @@ module Text
     end
 
     def ask_player_pattern
-        puts "Please input a 6 character long pattern".blue
+        puts "Please input a 4 character long pattern".blue
     end
 
     def announce_matches(matches)

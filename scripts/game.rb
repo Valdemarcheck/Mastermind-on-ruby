@@ -13,20 +13,19 @@ class Game
     # establishes a game session
     def self.start
         announce_beginning
+        sleep(1)
         ask_for_rules
         explain_rules if get_one_char('y', 'n') == 'y'
-        sleep(0.5)
+        sleep(1)
         puts "Ok, now we need to adjust some settings"
-        sleep(0.5)
         ask_for_duplicates
         @duplicates_allowed = duplicates?
-        sleep(0.5)
         ask_for_spaces
         spaces?
 
         @player = Player.new
         @enemy = Enemy.new(generate_random_str(@duplicates_allowed))
-        sleep(0.5)
+        sleep(1)
         announce_start
         begin_game
     end

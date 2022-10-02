@@ -1,7 +1,7 @@
 require 'colorize'
 module GetString
     # allowed signs in a pattern
-    @@allowed_signs = ['1', '2', '3', '4', '5', '6']
+    @@allowed_signs = ['1', '2', '3', '4', '5', '4']
     @@this_game_allowed_signs = [].concat(@@allowed_signs)
 
     # get one character out of 2 allowed ones
@@ -48,8 +48,8 @@ module GetString
     def valid?(pattern, duplicates_allowed)
         allowed = false
 
-        unless pattern.length == 6
-            puts "Your patters's length is invalid, input just 6 signs".red
+        unless pattern.length == 4
+            puts "Your patters's length is invalid, input just 4 signs".red
             return allowed
         end
 
@@ -76,9 +76,8 @@ module GetString
             if !duplicates_allowed && pattern.uniq != pattern
                 pattern.pop
             end
-            break if pattern.length == 6
+            break if pattern.length == 4
         end
-        p pattern
         pattern
     end
 
