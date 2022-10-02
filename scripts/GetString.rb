@@ -1,7 +1,8 @@
 require 'colorize'
 module GetString
     # allowed pegs in a pattern
-    @@allowed_pegs = ['1', '2', '3', '4', '5', '4']
+    @@allowed_pegs = ['1', '2', '3', '4', '5', '6']
+    # pegs which are allowed in the exact game session
     @@this_game_allowed_pegs = [].concat(@@allowed_pegs)
 
     # get one character out of 2 allowed ones
@@ -27,13 +28,15 @@ module GetString
     def spaces?
         if get_one_char('y', 'n') == 'y'
             @@this_game_allowed_pegs.push(' ')
+        elsif @@this_game_allowed_pegs.include?(' ')
+            @@this_game_allowed_pegs.delete(' ')
         end
     end
 
     # get player pattern
     def get_six_char_string(duplicates_allowed)
         pattern = Array.new
-        print "Pattern can include only #{@@this_game_allowed_pegs} pegs. "
+        print "Your pattern can include only #{@@this_game_allowed_pegs} pegs. "
         sleep(0.1)
         print "Duplicates allowed".blue if duplicates_allowed
         print "\n"
@@ -54,8 +57,8 @@ module GetString
         end
 
         pattern.each do |peg|
-            if !pattern.include?(peg)
-                puts "Your pattern has a disallowed peg. Only input #{this_game_allowed_pegs} pegs".red
+            if !@@this_game_allowed_pegs.include?(peg)
+                puts "Your pattern has a disallowed peg. Only input #{@@this_game_allowed_pegs} pegs".red
                 return allowed
             end
         end
