@@ -13,17 +13,15 @@ class Game
     # establishes a game session
     def self.start
         announce_beginning
-        sleep(0.5)
         ask_for_rules
         explain_rules if get_one_char('y', 'n') == 'y'
         sleep(0.5)
         puts "Ok, now we need to adjust some settings"
-        ask_for_duplicates
         sleep(0.5)
+        ask_for_duplicates
         @duplicates_allowed = duplicates?
         sleep(0.5)
         ask_for_spaces
-        sleep(0.5)
         spaces?
 
         @player = Player.new

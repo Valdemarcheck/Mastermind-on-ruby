@@ -49,7 +49,7 @@ class Board
     # fill the board with rows for the first time
     def fill_board_rows
         @board_rows = @board_rows.map {|row| row = '|■|------|■|'}
-        @board_rows[0] = '|■|??????|■|'.green
+        @board_rows[0] = '|■|??????|■|'
     end
 
     # replace a certain row of the board with |+|#{player_pattern}|+|
