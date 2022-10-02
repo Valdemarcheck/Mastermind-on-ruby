@@ -1,3 +1,4 @@
+require 'colorize'
 module GetString
     # allowed signs in a pattern
     @@allowed_signs = ['1', '2', '3', '4', '5', '6']
@@ -5,13 +6,14 @@ module GetString
 
     # get one character out of 2 allowed ones
     def get_one_char(allowed1, allowed2)
-        puts "Input #{allowed1} or #{allowed2}"
+        sleep(0.1)
+        puts "Input #{allowed1} or #{allowed2}".blue
         loop do
             char = gets.chomp.downcase
             if char == allowed1 || char == allowed2
                 return char
             else
-                puts "You should input #{allowed1} or #{allowed2}"
+                puts "You should input #{allowed1} or #{allowed2}".red
             end
         end
     end
@@ -31,8 +33,10 @@ module GetString
     # get player pattern
     def get_six_char_string(duplicates_allowed)
         pattern = Array.new
-        puts "Input a 6 character long string, that can include only #{@@this_game_allowed_signs} signs. "
-        print "Duplicates allowed" if duplicates_allowed
+        print "Pattern can include only #{@@this_game_allowed_signs} signs. "
+        sleep(0.1)
+        print "Duplicates allowed".blue if duplicates_allowed
+        print "\n"
         loop do
             pattern = gets.chomp.split('')
             break if valid?(pattern, duplicates_allowed)
@@ -45,19 +49,19 @@ module GetString
         allowed = false
 
         unless pattern.length == 6
-            puts "Your patters's length is invalid, input just 6 signs"
+            puts "Your patters's length is invalid, input just 6 signs".red
             return allowed
         end
 
         pattern.each do |sign|
             if !pattern.include?(sign)
-                puts "Your pattern has a disallowed sign. Only input #{this_game_allowed_signs} signs"
+                puts "Your pattern has a disallowed sign. Only input #{this_game_allowed_signs} signs".red
                 return allowed
             end
         end
 
         if !duplicates_allowed && pattern.uniq != pattern
-            puts "Your pattern can't include duplicates"
+            puts "Your pattern can't include duplicates".red
             return allowed
         end
 

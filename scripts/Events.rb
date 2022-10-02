@@ -1,3 +1,4 @@
+require 'colorize'
 require_relative('./game.rb')
 require_relative('./GetString')
 
@@ -6,9 +7,9 @@ module Events
     # announce a lose/win situation
     def announce_result(comparison_result)
         if comparison_result == true
-            puts "Player won! Wanna play again?"
+            puts "Yey! Player has won!".green
         else
-            puts "Oops, it seems like PC has won. Wanna play again?"
+            puts "Oops, it seems like PC has won.".green
         end
         restart_or_quit
     end
@@ -20,7 +21,7 @@ module Events
         if answer == 'y'
             Game.start
         else
-            puts 'See you next time!'
+            puts 'See you next time!'.green
             exit(1)
         end
     end
