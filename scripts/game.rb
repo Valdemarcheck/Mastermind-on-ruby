@@ -1,32 +1,39 @@
 require_relative('./board.rb')
 require_relative('./enemy.rb')
 require_relative('./player.rb')
+require_relative('./Text.rb')
 require_relative('./Events.rb')
 require_relative('./GetString.rb')
 
 class Game
-    attr_accessor :win
+    extend GetString
+    extend Text
+    attr_accessor :win, :duplicates_allowed
 
     # establishes a game session
     def self.start
+        announce_beginning
 
-    end
+        ask_for_rules
+        explain_rules if get_one_char('y', 'n') == 'y'
+        puts "Ok, now we need to adjust some settings"
 
-    private
+        ask_for_duplicates
+        @duplicates_allowed = duplicates?
 
-    # print rules of the game
-    def announce_rules
+        ask_for_spaces
+        spaces?
 
-    end
+        @player = Player.new
+        @enemy = Enemy.new(generate_random_str(@duplicates_allowed))
 
-    # ask if a player wants to play against a PC or a player
-    def player_or_PC
-
+        announce_start
+        begin_game
     end
 
     # create a board and start the game
-    def begin_game
-
+    def self.begin_game
+        @board = Board.new(@enemy, @player, @duplicates_allowed)
     end
 
 end
