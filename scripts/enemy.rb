@@ -1,9 +1,9 @@
-require_relative('./board.rb')
+require_relative('./board')
 
 class Enemy
-    attr_reader :pattern
+  attr_reader :pattern
 
-    def initialize(pattern)
-        @pattern = pattern
-    end
+  def initialize(pattern)
+    @pattern = pattern
+  end
 end

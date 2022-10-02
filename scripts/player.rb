@@ -1,9 +1,9 @@
-require_relative('./board.rb')
+require_relative('./board')
 
 class Player
-    attr_accessor :pattern
+  attr_accessor :pattern
 
-    def initialize
-        @pattern = Array.new
-    end
+  def initialize
+    @pattern = []
+  end
 end

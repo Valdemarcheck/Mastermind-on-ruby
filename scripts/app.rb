@@ -1,8 +1,8 @@
 require 'colorize'
-require_relative('./game.rb')
+require_relative('./game')
 
 def start_app
-    Game.start
+  Game.start
 end
 
 start_app
