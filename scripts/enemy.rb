@@ -1,3 +1,5 @@
+require_relative('./board.rb')
+
 class Enemy
     attr_reader :pattern
 

@@ -6,6 +6,8 @@ module Events
 
         else
 
+        end
+
     end
 
     # restart or quit the game

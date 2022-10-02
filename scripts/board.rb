@@ -1,3 +1,9 @@
+require_relative('./game.rb')
+require_relative('./enemy.rb')
+require_relative('./player.rb')
+require_relative('./Events.rb')
+require_relative('./GetString.rb')
+
 class Board
     
     attr_accessor :game_pattern, :attempts, :board_rows, :row

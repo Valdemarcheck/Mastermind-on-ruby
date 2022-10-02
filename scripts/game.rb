@@ -1,4 +1,11 @@
+require_relative('./board.rb')
+require_relative('./enemy.rb')
+require_relative('./player.rb')
+require_relative('./Events.rb')
+require_relative('./GetString.rb')
+
 class Game
+    attr_accessor :win
 
     # establishes a game session
     def self.start

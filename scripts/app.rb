@@ -1,4 +1,4 @@
-require 'game.rb'
+require_relative('./game.rb')
 
 def start_app
     Game.start
